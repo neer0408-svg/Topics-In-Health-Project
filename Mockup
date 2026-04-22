@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Disconnect | Gaming Health Awareness</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        .noise-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.04;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::selection {
+            background: #10B981; /* Emerald 500 */
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-emerald-500 selection:text-white relative bg-black text-white">
+    
+    <div class="noise-bg"></div>
+
+    <!-- Fixed Nav -->
+    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center bg-black/80 backdrop-blur-xl border-b border-white/10">
+        <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400">
+            Public Health Campaign
+        </div>
+        <div class="font-bold tracking-tight text-xl text-white">
+            Disconnect.
+        </div>
+        <a href="#action" class="font-mono text-[10px] uppercase tracking-[0.2em] text-white hover:text-emerald-400 transition-colors">
+            Take Action &rarr;
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center px-6 pt-32 pb-20 max-w-6xl mx-auto relative z-10">
+        <div class="max-w-4xl fade-up">
+            <h1 class="text-6xl md:text-8xl lg:text-[7.5rem] font-extrabold tracking-tighter leading-[1.05] mb-8 text-white">
+                Losing the<br>
+                <span class="text-zinc-500">Balance.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-zinc-400 max-w-2xl font-normal leading-relaxed tracking-tight">
+                Gaming connects us and offers a great escape. Excessive playtime, however, slowly rewires how we think, feel, and grow. Understand the real-world impact of gaming addiction on your mind, body, and future.
+            </p>
+        </div>
+        
+        <div class="absolute right-6 bottom-12 hidden md:flex items-center justify-center">
+            <div class="w-24 h-24 rounded-full border border-white/10 flex items-center justify-center animate-[spin_15s_linear_infinite]">
+                <span class="font-mono text-[8px] text-zinc-400 uppercase tracking-[0.2em] absolute">Scroll to explore</span>
+            </div>
+            <i class="ph ph-arrow-down absolute text-zinc-400"></i>
+        </div>
+    </header>
+
+    <!-- The Individual -->
+    <section class="py-20 lg:py-28 px-6 border-t border-white/10 max-w-6xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            <div class="lg:col-span-5 fade-up">
+                <span class="font-mono text-emerald-400 text-[10px] mb-6 block uppercase tracking-[0.2em]">01 // The Individual</span>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-white leading-tight">What happens offline.</h2>
+                <p class="text-zinc-400 text-sm md:text-base leading-relaxed">
+                    The effects of excessive screen time follow you away from the keyboard. Your physical health and emotional baseline take a direct hit when the game never pauses.
+                </p>
+            </div>
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12">
+                
+                <div class="fade-up" style="transition-delay: 100ms;">
+                    <h3 class="text-xl font-bold mb-4 tracking-tight text-white">The Dopamine Shift</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm md:text-base">
+                        Games are designed to give you constant, immediate rewards. Over time, your brain gets used to these massive spikes of dopamine. Everyday tasks like studying, exercising, or hanging out with friends start to feel boring and unrewarding because they take patience.
+                    </p>
+                </div>
+
+                <div class="fade-up" style="transition-delay: 200ms;">
+                    <h3 class="text-xl font-bold mb-4 tracking-tight text-white">Stress Bleed</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm md:text-base">
+                        Competitive environments are intensely stressful. That tension often spills over into real life. Players frequently experience heightened anxiety, irritability over small inconveniences, and sudden mood swings when forced to step away from the screen.
+                    </p>
+                </div>
+
+                <div class="fade-up" style="transition-delay: 300ms;">
+                    <h3 class="text-xl font-bold mb-4 tracking-tight text-white">Stolen Rest</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm md:text-base">
+                        Late-night sessions flood your eyes with blue light and keep your mind racing. This destroys your natural sleep cycle. Missing out on deep REM sleep leads to chronic daytime exhaustion, severe brain fog, and difficulty concentrating in class or at work.
+                    </p>
+                </div>
+
+                <div class="fade-up" style="transition-delay: 400ms;">
+                    <h3 class="text-xl font-bold mb-4 tracking-tight text-white">The Physical Toll</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm md:text-base">
+                        The human body needs movement. Sitting frozen in a chair for hours on end causes significant physical strain. This lifestyle accelerates poor posture, creates chronic joint and back pain, and drastically lowers your overall energy levels and metabolism.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- The Society -->
+    <section class="py-20 lg:py-28 px-6 bg-zinc-950 border-t border-white/10 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 lg:mb-16 fade-up">
+                <div class="max-w-2xl">
+                    <span class="font-mono text-emerald-400 text-[10px] mb-6 block uppercase tracking-[0.2em]">02 // The Bigger Picture</span>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-white leading-tight">Missing out on the real world.</h2>
+                </div>
+                <div class="max-w-md mt-6 lg:mt-0 text-zinc-400 text-base leading-relaxed">
+                    When gaming shifts from a hobby to an addiction, the opportunity cost is massive. Young adults are quietly isolating themselves during their most critical years of personal growth.
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Impact Card 1 -->
+                <div class="p-8 lg:p-10 bg-zinc-900 border border-white/5 fade-up hover:border-white/20 transition-colors">
+                    <div class="mb-8 text-emerald-400">
+                        <i class="ph ph-briefcase text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 tracking-tight text-white">Paused Ambition</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm md:text-base">
+                        You have a limited amount of time and energy to build your future. Pouring thousands of hours into climbing virtual ranks takes that energy directly away from your education, your career, and your physical hobbies. The real world moves forward while you stay locked in the same routine.
+                    </p>
+                </div>
+
+                <!-- Impact Card 2 -->
+                <div class="p-8 lg:p-10 bg-zinc-900 border border-white/5 fade-up hover:border-white/20 transition-colors" style="transition-delay: 100ms;">
+                    <div class="mb-8 text-emerald-400">
+                        <i class="ph ph-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 tracking-tight text-white">Losing Touch</h3>
+                    <p class="text-zinc-400 leading-relaxed text-sm md:text-base">
+                        Face-to-face connection requires physical presence and practice. Relying entirely on voice chats and game lobbies limits your ability to read body language and navigate complex social situations. Over time, this leads to deep personal isolation and makes it incredibly difficult to build a physical support network.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action / Takeaway -->
+    <section id="action" class="py-20 lg:py-28 px-6 border-t border-white/10 max-w-4xl mx-auto text-center relative z-10">
+        <div class="fade-up">
+            <h2 class="text-5xl md:text-6xl font-bold tracking-tighter mb-8 text-white">Touch <span class="text-emerald-400">grass.</span></h2>
+            <p class="text-xl text-zinc-400 mb-10 lg:mb-12 leading-relaxed max-w-2xl mx-auto">
+                You can enjoy gaming while still living a full life. Recognizing the habit is the first step. Building physical boundaries is the second.
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left mb-12">
+                <div class="p-8 bg-zinc-950 border border-white/10">
+                    <h4 class="font-bold mb-4 text-lg tracking-tight text-white">Set Physical Boundaries</h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Keep your gaming setup out of your bedroom to protect your sleep. Use built-in screen time trackers to enforce a hard daily limit, and actively plan offline activities with friends to break the routine.</p>
+                </div>
+                <div class="p-8 bg-zinc-950 border border-white/10">
+                    <h4 class="font-bold mb-4 text-lg tracking-tight text-white">Ask for Support</h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed">If you find yourself unable to step away, or if gaming is causing serious friction in your daily life, reach out. Campus counselors and therapists are fully equipped to help you rebuild healthy habits.</p>
+                </div>
+            </div>
+
+            <button class="bg-white text-black px-8 py-4 font-bold tracking-tight hover:bg-emerald-400 hover:text-black transition-colors duration-300 inline-flex items-center gap-3">
+                Find Local Resources <i class="ph ph-arrow-right font-bold"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-zinc-500 text-sm max-w-6xl mx-auto font-mono relative z-10">
+        <div class="text-[10px] tracking-widest uppercase">
+            Public Health Campaign // Disconnect
+        </div>
+        <div class="mt-4 md:mt-0 text-center md:text-right text-[10px] tracking-widest uppercase opacity-60">
+            Awareness. Balance. Action.
+        </div>
+    </footer>
+
+    <!-- Scroll Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-up');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
