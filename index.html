@@ -75,12 +75,12 @@
 
     <!-- Hero Section -->
     <header class="min-h-screen flex flex-col justify-center px-6 pt-32 pb-20 max-w-6xl mx-auto relative z-10">
-        <div class="max-w-4xl fade-up">
+        <div class="max-w-3xl fade-up">
             <h1 class="text-6xl md:text-8xl lg:text-[7.5rem] font-extrabold tracking-tighter leading-[1.05] mb-8 text-white">
                 Losing the<br>
                 <span class="text-zinc-500">Balance.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-zinc-400 max-w-2xl font-normal leading-relaxed tracking-tight">
+            <p class="text-xl md:text-2xl text-zinc-400 font-normal leading-relaxed tracking-tight">
                 Gaming connects us and offers a great escape. Excessive playtime, however, slowly rewires how we think, feel, and grow. Understand the real-world impact of gaming addiction on your mind, body, and future.
             </p>
         </div>
@@ -96,14 +96,17 @@
     <!-- The Individual -->
     <section class="py-20 lg:py-28 px-6 border-t border-white/10 max-w-6xl mx-auto relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            <div class="lg:col-span-5 fade-up">
+            <!-- Shrunk from span-5 to span-4 to give text more room -->
+            <div class="lg:col-span-4 fade-up">
                 <span class="font-mono text-emerald-400 text-[10px] mb-6 block uppercase tracking-[0.2em]">01 // The Individual</span>
                 <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-white leading-tight">What happens offline.</h2>
                 <p class="text-zinc-400 text-sm md:text-base leading-relaxed">
                     The effects of excessive screen time follow you away from the keyboard. Your physical health and emotional baseline take a direct hit when the game never pauses.
                 </p>
             </div>
-            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12">
+            
+            <!-- Expanded from span-7 to span-8 so columns aren't squished -->
+            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-10">
                 
                 <div class="fade-up" style="transition-delay: 100ms;">
                     <h3 class="text-xl font-bold mb-4 tracking-tight text-white">The Dopamine Shift</h3>
@@ -140,19 +143,19 @@
     <!-- The Society -->
     <section class="py-20 lg:py-28 px-6 bg-zinc-950 border-t border-white/10 relative z-10">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 lg:mb-16 fade-up">
-                <div class="max-w-2xl">
-                    <span class="font-mono text-emerald-400 text-[10px] mb-6 block uppercase tracking-[0.2em]">02 // The Bigger Picture</span>
-                    <h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-white leading-tight">Missing out on the real world.</h2>
-                </div>
-                <div class="max-w-md mt-6 lg:mt-0 text-zinc-400 text-base leading-relaxed">
+            
+            <!-- Removed 'justify-between' split that pushed text to the far right. Now it stacks cleanly. -->
+            <div class="max-w-3xl mb-16 fade-up">
+                <span class="font-mono text-emerald-400 text-[10px] mb-6 block uppercase tracking-[0.2em]">02 // The Bigger Picture</span>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-white leading-tight mb-6">Missing out on the real world.</h2>
+                <p class="text-zinc-400 text-lg leading-relaxed">
                     When gaming shifts from a hobby to an addiction, the opportunity cost is massive. Young adults are quietly isolating themselves during their most critical years of personal growth.
-                </div>
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Impact Card 1 -->
-                <div class="p-8 lg:p-10 bg-zinc-900 border border-white/5 fade-up hover:border-white/20 transition-colors">
+                <div class="p-10 lg:p-12 bg-zinc-900 border border-white/5 fade-up hover:border-white/20 transition-colors">
                     <div class="mb-8 text-emerald-400">
                         <i class="ph ph-briefcase text-4xl"></i>
                     </div>
@@ -163,7 +166,7 @@
                 </div>
 
                 <!-- Impact Card 2 -->
-                <div class="p-8 lg:p-10 bg-zinc-900 border border-white/5 fade-up hover:border-white/20 transition-colors" style="transition-delay: 100ms;">
+                <div class="p-10 lg:p-12 bg-zinc-900 border border-white/5 fade-up hover:border-white/20 transition-colors" style="transition-delay: 100ms;">
                     <div class="mb-8 text-emerald-400">
                         <i class="ph ph-users text-4xl"></i>
                     </div>
@@ -177,19 +180,21 @@
     </section>
 
     <!-- Action / Takeaway -->
-    <section id="action" class="py-20 lg:py-28 px-6 border-t border-white/10 max-w-4xl mx-auto text-center relative z-10">
+    <!-- Expanded from max-w-4xl to max-w-5xl so the boxes aren't tiny -->
+    <section id="action" class="py-20 lg:py-28 px-6 border-t border-white/10 max-w-5xl mx-auto text-center relative z-10">
         <div class="fade-up">
             <h2 class="text-5xl md:text-6xl font-bold tracking-tighter mb-8 text-white">Touch <span class="text-emerald-400">grass.</span></h2>
-            <p class="text-xl text-zinc-400 mb-10 lg:mb-12 leading-relaxed max-w-2xl mx-auto">
+            <p class="text-xl text-zinc-400 mb-12 leading-relaxed max-w-2xl mx-auto">
                 You can enjoy gaming while still living a full life. Recognizing the habit is the first step. Building physical boundaries is the second.
             </p>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left mb-12">
-                <div class="p-8 bg-zinc-950 border border-white/10">
+            <!-- Removed max-w-2xl from this grid so cards span out -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-16">
+                <div class="p-10 bg-zinc-950 border border-white/10">
                     <h4 class="font-bold mb-4 text-lg tracking-tight text-white">Set Physical Boundaries</h4>
                     <p class="text-sm text-zinc-400 leading-relaxed">Keep your gaming setup out of your bedroom to protect your sleep. Use built-in screen time trackers to enforce a hard daily limit, and actively plan offline activities with friends to break the routine.</p>
                 </div>
-                <div class="p-8 bg-zinc-950 border border-white/10">
+                <div class="p-10 bg-zinc-950 border border-white/10">
                     <h4 class="font-bold mb-4 text-lg tracking-tight text-white">Ask for Support</h4>
                     <p class="text-sm text-zinc-400 leading-relaxed">If you find yourself unable to step away, or if gaming is causing serious friction in your daily life, reach out. Campus counselors and therapists are fully equipped to help you rebuild healthy habits.</p>
                 </div>
