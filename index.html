@@ -55,7 +55,6 @@
             color: #ffffff;
         }
 
-        /* Custom scrollbar for premium feel */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -67,6 +66,13 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #10B981;
+        }
+
+        /* Quiz option active state */
+        .quiz-opt.active {
+            background-color: #10B981;
+            color: #000;
+            border-color: #10B981;
         }
     </style>
 </head>
@@ -193,6 +199,37 @@
         </div>
     </section>
 
+    <!-- Self Assessment -->
+    <section id="self-check" class="w-full px-6 md:px-12 lg:px-24 py-24 lg:py-32 border-t border-white/10 relative z-10">
+        <div class="w-full max-w-7xl mx-auto">
+            
+            <div class="mb-16 lg:mb-24 fade-up max-w-3xl">
+                <span class="font-mono text-emerald-400 text-[10px] mb-6 block uppercase tracking-[0.2em]">03 // Self Assessment</span>
+                <h2 class="text-5xl lg:text-7xl font-bold tracking-tighter text-white leading-tight mb-8">Where do you actually stand?</h2>
+                <p class="text-zinc-400 text-lg lg:text-xl leading-relaxed mb-6">
+                    A 9-question screener adapted from the Internet Gaming Disorder Scale (IGDS9-SF) — the standard tool used to flag problematic gaming behavior under DSM-5 criteria. Answer based on the past 12 months. Two minutes, honest answers, no email required.
+                </p>
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+                    Screening tool only · Not a diagnosis
+                </p>
+            </div>
+            
+            <div id="quiz-container" class="fade-up"></div>
+            
+            <div class="mt-12 flex flex-col md:flex-row gap-6 items-start md:items-center fade-up">
+                <button id="quiz-submit" class="bg-white text-black px-10 py-5 font-bold tracking-tight hover:bg-emerald-400 transition-colors duration-300 inline-flex items-center gap-3">
+                    Calculate My Score <i class="ph ph-arrow-right font-bold text-xl"></i>
+                </button>
+                <p id="quiz-warning" class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 hidden">
+                    Answer all 9 questions to see your score.
+                </p>
+            </div>
+            
+            <div id="quiz-result" class="hidden mt-20 border-t border-white/10 pt-16"></div>
+
+        </div>
+    </section>
+
     <!-- Action / Takeaway -->
     <section id="action" class="w-full px-6 md:px-12 lg:px-24 py-24 lg:py-32 border-t border-white/10 relative z-10">
         <div class="w-full max-w-7xl mx-auto">
@@ -217,9 +254,9 @@
                         <h4 class="font-bold mb-6 text-2xl tracking-tight text-white">Ask for Support</h4>
                         <p class="text-lg text-zinc-400 leading-relaxed mb-12">If you find yourself unable to step away, reach out. Campus counselors and therapists are fully equipped to help you rebuild healthy habits without judgment.</p>
                     </div>
-                    <button class="bg-white text-black px-10 py-5 font-bold tracking-tight hover:bg-emerald-400 hover:text-black transition-colors duration-300 inline-flex items-center gap-3 w-full justify-center md:w-auto md:justify-start">
+                    <a href="https://findtreatment.gov" target="_blank" rel="noopener noreferrer" class="bg-white text-black px-10 py-5 font-bold tracking-tight hover:bg-emerald-400 hover:text-black transition-colors duration-300 inline-flex items-center gap-3 w-full justify-center md:w-auto md:justify-start">
                         Find Local Resources <i class="ph ph-arrow-right font-bold text-xl"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -257,6 +294,121 @@
             const fadeElements = document.querySelectorAll('.fade-up');
             fadeElements.forEach(el => observer.observe(el));
         });
+    </script>
+
+    <!-- Quiz Logic -->
+    <script>
+        const QUESTIONS = [
+            "Do you feel that gaming has become the dominant activity in your daily life?",
+            "Do you feel irritated, anxious, or sad when you try to reduce or stop gaming?",
+            "Do you feel the need to spend increasing amounts of time gaming to feel satisfied?",
+            "Have you repeatedly failed to control how much time you spend gaming or to stop?",
+            "Have you lost interest in hobbies or activities you used to enjoy because of gaming?",
+            "Have you continued gaming even when you knew it was causing problems in your life?",
+            "Have you lied to family, friends, or others about how much time you spend gaming?",
+            "Do you game to escape or relieve negative moods like anxiety, guilt, or helplessness?",
+            "Have you jeopardized or lost a relationship, job, or opportunity because of gaming?"
+        ];
+
+        const SCALE = [
+            { label: "Never", value: 1 },
+            { label: "Rarely", value: 2 },
+            { label: "Sometimes", value: 3 },
+            { label: "Often", value: 4 },
+            { label: "Very Often", value: 5 }
+        ];
+
+        const answers = {};
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = QUESTIONS.map((q, i) => `
+                <div class="border-t border-white/10 py-10" data-question="${i}">
+                    <div class="flex flex-col lg:flex-row gap-6 lg:gap-12">
+                        <div class="lg:w-1/3">
+                            <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-3">Q${String(i+1).padStart(2,'0')} / 09</div>
+                            <p class="text-lg lg:text-xl text-white font-medium leading-snug">${q}</p>
+                        </div>
+                        <div class="lg:w-2/3 grid grid-cols-2 sm:grid-cols-5 gap-2">
+                            ${SCALE.map(s => `
+                                <button type="button" data-q="${i}" data-v="${s.value}" class="quiz-opt border border-white/10 text-zinc-400 hover:border-emerald-400 hover:text-emerald-400 py-4 px-2 text-sm font-medium tracking-tight transition-colors duration-200">
+                                    ${s.label}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('') + '<div class="border-t border-white/10"></div>';
+            
+            document.querySelectorAll('.quiz-opt').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const q = e.currentTarget.dataset.q;
+                    const v = parseInt(e.currentTarget.dataset.v);
+                    answers[q] = v;
+                    document.querySelectorAll(`.quiz-opt[data-q="${q}"]`).forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    e.currentTarget.classList.add('active');
+                });
+            });
+        }
+
+        function calculateScore() {
+            if (Object.keys(answers).length < 9) {
+                document.getElementById('quiz-warning').classList.remove('hidden');
+                return;
+            }
+            document.getElementById('quiz-warning').classList.add('hidden');
+            
+            const total = Object.values(answers).reduce((a,b) => a+b, 0);
+            let band, label, message, color;
+            
+            if (total <= 17) {
+                band = "Low Risk";
+                label = "Recreational";
+                message = "Your gaming habits look healthy. Keep your routine balanced — sleep, movement, and offline social time are doing their job. Stay aware of how those habits hold up during stressful periods.";
+                color = "text-emerald-400";
+            } else if (total <= 25) {
+                band = "Mild";
+                label = "Worth Watching";
+                message = "Some early signs are showing up. You're not in crisis territory, but a few patterns are worth tracking. Try setting a hard daily cap for two weeks and see how it feels — that's the cleanest way to learn whether you can step away on your own terms.";
+                color = "text-yellow-400";
+            } else if (total <= 35) {
+                band = "Moderate";
+                label = "Review Your Habits";
+                message = "Your responses suggest gaming is starting to interfere with parts of your life. This is the right moment to take it seriously, before it costs you something you actually care about. Build structural friction into your setup and talk to someone you trust.";
+                color = "text-orange-400";
+            } else {
+                band = "Elevated";
+                label = "Consider Reaching Out";
+                message = "Several of your answers point to a level of involvement that's hard to manage alone. There's no judgment in this — gaming systems are explicitly engineered to do exactly this. A counselor or therapist can help you separate the habit from the identity. Use the resources below.";
+                color = "text-red-400";
+            }
+            
+            const result = document.getElementById('quiz-result');
+            result.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                    <div>
+                        <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-4">Your Score</div>
+                        <div class="font-bold tracking-tighter leading-none">
+                            <span class="text-7xl lg:text-9xl ${color}">${total}</span><span class="text-3xl lg:text-4xl text-zinc-700"> / 45</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="font-mono text-[10px] uppercase tracking-[0.2em] ${color} mb-4">${band} · ${label}</div>
+                        <p class="text-xl lg:text-2xl text-white leading-relaxed tracking-tight font-light mb-8">${message}</p>
+                        <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+                            Screening tool only. Persistent concerns warrant a conversation with a mental health professional.
+                        </p>
+                    </div>
+                </div>
+            `;
+            result.classList.remove('hidden');
+            result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        renderQuiz();
+        document.getElementById('quiz-submit').addEventListener('click', calculateScore);
     </script>
 </body>
 </html>
