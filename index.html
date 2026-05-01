@@ -412,14 +412,16 @@
             
             let impactMessage = "";
             
-            if (hours <= 7) {
-                impactMessage = "This represents a healthy recreational level. It provides relaxation while leaving you plenty of time to build your physical health, career, and relationships.";
-            } else if (hours <= 14) {
-                impactMessage = "This is a moderate commitment. You could use this time to learn a solid secondary skill, read a couple dozen books, or maintain a consistent gym routine. Monitor this number to keep your routine balanced.";
-            } else if (hours <= 25) {
-                impactMessage = "This is the equivalent of a part-time job. Redirecting this energy gives you enough time to achieve fluency in a new language, drastically transform your physical health, or build a profitable side business.";
+            if (hours <= 5) {
+                impactMessage = "This is a healthy recreational range. Enjoy your games. You are keeping your playtime balanced with your real world priorities like fitness, career, and social life.";
+            } else if (hours <= 12) {
+                impactMessage = "This is a dedicated hobby level. You spend enough time here to learn a new language or read two dozen books a year. Keep an eye on this number so your gaming stays a fun escape rather than a default habit.";
+            } else if (hours <= 20) {
+                impactMessage = "This requires the time commitment of a part-time job. Redirecting this energy gives you enough time to build a profitable side business or completely transform your physical health.";
+            } else if (hours <= 35) {
+                impactMessage = "This is the equivalent of a full-time job. You are trading over a month of your waking life every year to a virtual world. This level of investment actively pulls resources away from your physical potential and real world relationships.";
             } else {
-                impactMessage = "This requires the commitment of a full-time job. You are trading over a month of your waking life every year to a virtual world. This level of investment actively pulls resources away from your physical potential, career trajectory, and real world relationships.";
+                impactMessage = "This is an all-consuming routine. You are losing a massive portion of your year to a screen. Your virtual achievements are actively replacing your real world growth, career trajectory, and physical well-being.";
             }
             
             resultDiv.innerHTML = `At <span class="text-emerald-400 font-bold">${hours} hours</span> a week, you spend <span class="text-white font-bold">${yearlyHours} hours</span> (that is <span class="text-white font-bold">${fullDays} full days</span>) a year gaming. ${impactMessage}`;
