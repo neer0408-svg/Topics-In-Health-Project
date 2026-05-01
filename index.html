@@ -182,8 +182,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="p-10 border border-white/5 bg-black fade-up">
                     <i class="ph ph-cube text-4xl text-emerald-400 mb-6 block"></i>
-                    <h3 class="text-2xl font-bold mb-4 tracking-tight text-white">Skinner Box Mechanics</h3>
-                    <p class="text-zinc-400 leading-relaxed">Unpredictable reward schedules, like loot boxes and randomized drops, train your brain to keep pulling the lever. The uncertainty creates a stronger dopamine response than guaranteed rewards.</p>
+                    <h3 class="text-2xl font-bold mb-4 tracking-tight text-white">The Slot Machine Effect</h3>
+                    <p class="text-zinc-400 leading-relaxed">Games use unpredictable rewards like loot boxes and rare item drops to keep you hooked. The constant uncertainty trains your brain to keep pulling the lever, creating a much stronger addiction than if the rewards were guaranteed.</p>
                 </div>
                 
                 <div class="p-10 border border-white/5 bg-black fade-up" style="transition-delay: 100ms;">
@@ -408,7 +408,8 @@
             }
             
             const yearlyHours = hours * 52;
-            resultDiv.innerHTML = `At <span class="text-emerald-400 font-bold">${hours} hours</span> a week, you spend <span class="text-white font-bold">${yearlyHours} hours</span> a year gaming. That is enough time to achieve fluency in a new language, drastically transform your physical health, and build a profitable side business.`;
+            const fullDays = Math.floor(yearlyHours / 24);
+            resultDiv.innerHTML = `At <span class="text-emerald-400 font-bold">${hours} hours</span> a week, you spend <span class="text-white font-bold">${yearlyHours} hours</span> (that is <span class="text-white font-bold">${fullDays} full days</span>) a year gaming. That is enough time to achieve fluency in a new language, drastically transform your physical health, and build a profitable side business.`;
             resultDiv.classList.remove('hidden');
         }
 
