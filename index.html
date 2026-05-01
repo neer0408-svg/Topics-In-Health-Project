@@ -413,15 +413,15 @@
             let impactMessage = "";
             
             if (hours <= 5) {
-                impactMessage = "This is a perfectly healthy balance. You play enough to have fun and unwind, leaving plenty of time for everything else. Enjoy your games and keep up the good habits.";
+                impactMessage = "This is a great spot to be in. You play just enough to blow off some steam and have fun, and you still have plenty of time for everything else going on in your life. Keep enjoying your games.";
             } else if (hours <= 12) {
-                impactMessage = "This is solid hobby territory. You are logging enough hours to notice it in your schedule. It probably fits fine if you manage your time well. Just keep an eye on it during stressful weeks to make sure real life comes first.";
+                impactMessage = "This is totally normal hobby territory. You are putting in enough hours to actually get good and enjoy yourself. Just make sure to check in with yourself during busy weeks so gaming stays a fun release.";
             } else if (hours <= 20) {
-                impactMessage = "You are putting in part-time job hours. This is a massive chunk of time. Redirecting even half of this energy gives you enough room to get in great shape, pick up a physical skill, or build a real social life outside of a headset.";
+                impactMessage = "This is basically a part-time job. You are spending a big chunk of your week gaming. If you ever catch yourself saying you do not have time to hit the gym, learn something new, or hang out offline, taking back just a few of these hours will fix that.";
             } else if (hours <= 35) {
-                impactMessage = "You are essentially working a second full-time job for zero pay. You are trading over two solid months of your waking life every year to a screen. Stepping back from this level gives you the space to completely overhaul your career, your grades, or your physical health.";
+                impactMessage = "You are putting in the hours of a second job. That adds up to a couple of solid months of your waking life every year. Channeling even half of this energy back into your real life gives you the space to completely transform your fitness, your career, or your relationships.";
             } else {
-                impactMessage = "This is an all-consuming routine. You are losing a massive portion of your year entirely to gaming. Your virtual life is actively overriding your physical reality. Taking back these thousands of hours gives you the power to completely reset your life and fix the things you are avoiding.";
+                impactMessage = "This is a massive time commitment. You are essentially working a full-time job inside a game. Pouring this many hours into a screen makes it really hard to focus on anything else. Deciding to take some of this time back gives you an incredible amount of power to build the real-world life you actually want.";
             }
             
             resultDiv.innerHTML = `At <span class="text-emerald-400 font-bold">${hours} hours</span> a week, you spend <span class="text-white font-bold">${yearlyHours} hours</span> (that is <span class="text-white font-bold">${fullDays} full days</span>) a year gaming. ${impactMessage}`;
