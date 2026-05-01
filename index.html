@@ -409,7 +409,20 @@
             
             const yearlyHours = hours * 52;
             const fullDays = Math.floor(yearlyHours / 24);
-            resultDiv.innerHTML = `At <span class="text-emerald-400 font-bold">${hours} hours</span> a week, you spend <span class="text-white font-bold">${yearlyHours} hours</span> (that is <span class="text-white font-bold">${fullDays} full days</span>) a year gaming. That is enough time to achieve fluency in a new language, drastically transform your physical health, and build a profitable side business.`;
+            
+            let impactMessage = "";
+            
+            if (hours <= 7) {
+                impactMessage = "This represents a healthy recreational level. It provides relaxation while leaving you plenty of time to build your physical health, career, and relationships.";
+            } else if (hours <= 14) {
+                impactMessage = "This is a moderate commitment. You could use this time to learn a solid secondary skill, read a couple dozen books, or maintain a consistent gym routine. Monitor this number to keep your routine balanced.";
+            } else if (hours <= 25) {
+                impactMessage = "This is the equivalent of a part-time job. Redirecting this energy gives you enough time to achieve fluency in a new language, drastically transform your physical health, or build a profitable side business.";
+            } else {
+                impactMessage = "This requires the commitment of a full-time job. You are trading over a month of your waking life every year to a virtual world. This level of investment actively pulls resources away from your physical potential, career trajectory, and real world relationships.";
+            }
+            
+            resultDiv.innerHTML = `At <span class="text-emerald-400 font-bold">${hours} hours</span> a week, you spend <span class="text-white font-bold">${yearlyHours} hours</span> (that is <span class="text-white font-bold">${fullDays} full days</span>) a year gaming. ${impactMessage}`;
             resultDiv.classList.remove('hidden');
         }
 
