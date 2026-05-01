@@ -413,15 +413,15 @@
             let impactMessage = "";
             
             if (hours <= 5) {
-                impactMessage = "This is a healthy recreational range. Enjoy your games. You are keeping your playtime balanced with your real world priorities like fitness, career, and social life.";
+                impactMessage = "This is a perfectly healthy balance. You play enough to have fun and unwind, leaving plenty of time for everything else. Enjoy your games and keep up the good habits.";
             } else if (hours <= 12) {
-                impactMessage = "This is a dedicated hobby level. You spend enough time here to learn a new language or read two dozen books a year. Keep an eye on this number so your gaming stays a fun escape rather than a default habit.";
+                impactMessage = "This is solid hobby territory. You are logging enough hours to notice it in your schedule. It probably fits fine if you manage your time well. Just keep an eye on it during stressful weeks to make sure real life comes first.";
             } else if (hours <= 20) {
-                impactMessage = "This requires the time commitment of a part-time job. Redirecting this energy gives you enough time to build a profitable side business or completely transform your physical health.";
+                impactMessage = "You are putting in part-time job hours. This is a massive chunk of time. Redirecting even half of this energy gives you enough room to get in great shape, pick up a physical skill, or build a real social life outside of a headset.";
             } else if (hours <= 35) {
-                impactMessage = "This is the equivalent of a full-time job. You are trading over a month of your waking life every year to a virtual world. This level of investment actively pulls resources away from your physical potential and real world relationships.";
+                impactMessage = "You are essentially working a second full-time job for zero pay. You are trading over two solid months of your waking life every year to a screen. Stepping back from this level gives you the space to completely overhaul your career, your grades, or your physical health.";
             } else {
-                impactMessage = "This is an all-consuming routine. You are losing a massive portion of your year to a screen. Your virtual achievements are actively replacing your real world growth, career trajectory, and physical well-being.";
+                impactMessage = "This is an all-consuming routine. You are losing a massive portion of your year entirely to gaming. Your virtual life is actively overriding your physical reality. Taking back these thousands of hours gives you the power to completely reset your life and fix the things you are avoiding.";
             }
             
             resultDiv.innerHTML = `At <span class="text-emerald-400 font-bold">${hours} hours</span> a week, you spend <span class="text-white font-bold">${yearlyHours} hours</span> (that is <span class="text-white font-bold">${fullDays} full days</span>) a year gaming. ${impactMessage}`;
